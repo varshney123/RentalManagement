@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "rental-management",
+    "public": "dist/rental-management",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

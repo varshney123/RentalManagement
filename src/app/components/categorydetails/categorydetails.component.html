@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row mx-2 my-4">
+       <span class="custom-cursor inline" (click)="goBack()"> {{CONSTANTS.BREADCRUM_HEAD}} </span>/ <span class="inline">{{categoryName}}</span>
+    </div>
+    <div class="row">
+        <mat-card  *ngFor="let subcategory of subcategories" class="col-md-2 mx-3 my-3" mat-elevation-z8>
+            <img mat-card-image [src]="getSourceUrl(subcategory.image)">
+            <p>{{subcategory.name}}</p>
+        </mat-card>
+    </div>
+</div>
+

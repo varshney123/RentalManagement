@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#">{{CONSTANTS.PROJ_NAME}}</a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        </ul>
+        <div class="d-flex m-auto">
+            <button mat-raised-button #triggerBtn [matMenuTriggerFor]="locationmenu" class="mx-2">{{CONSTANTS.SELECT_TEXT_SMALL}}<mat-icon>arrow_drop_down</mat-icon></button>
+            <mat-menu #locationmenu="matMenu">
+                <ng-container *ngFor="let location of locations" >
+                  <button mat-menu-item [matMenuTriggerFor]="branchmenu" (click)="optionSelected('location',location)">{{location.name}}</button>
+                  <mat-menu #branchmenu="matMenu">
+                     <button *ngFor="let branch of location.branches" (click)="optionSelected('branch',location,branch)" mat-menu-item>{{ branch.name }}</button>
+                  </mat-menu>
+                </ng-container>
+              </mat-menu>
+            <div style="color: white;" class="m-auto" *ngIf="this.location">
+                Selected Location : <span *ngIf="branch">{{branch}} , </span><span>{{location}}</span>
+            </div>  
+        </div>
+      </div>
+    </div>
+  </nav>

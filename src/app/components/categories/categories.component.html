@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row mx-2 my-4">
+        {{CONSTANTS.BREADCRUM_HEAD}}
+    </div>
+    <div class="row">
+        <mat-card  *ngFor="let category of categories" class="col-md-2 mx-3 my-3" mat-elevation-z8>
+            <img mat-card-image [src]="getSourceUrl(category.image)">
+            <p class="custom-cursor" (click)="showSubCategories(category)">{{category.name}}<mat-icon style="float: right;">arrow_right_alt</mat-icon></p>
+        </mat-card>
+    </div>
+</div>
+
